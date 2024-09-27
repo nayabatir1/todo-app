@@ -26,14 +26,16 @@ function TodoItem({ data, id, status }: TodoItem) {
         status === Status.COMPLETED ? "line-through bg-[#5A639C]" : ""
       } ${
         status === Status.PENDING ? "bg-cyan-700" : ""
-      }  rounded-full my-3 p-5 flex justify-between items-center hover:cursor-pointer gap-3`}
+      }  rounded-tl-[30px] rounded-br-[30px] my-3 p-5 flex justify-between items-center hover:cursor-pointer gap-3`}
       onClick={completeTodo}
     >
-      <p className="break-words grow max-w-[90%]">{data}</p>
+      <p className="break-words grow max-w-[80%]">{data}</p>
 
       <button
         onClick={removeTodo}
-        className="h-10 w-10 grid place-content-center"
+        className={`h-10 w-10 grid place-content-center rounded-full ${
+          status === Status.PENDING ? "bg-[#6295A2]" : ""
+        } ${status === Status.COMPLETED ? "bg-[#624E88]" : ""}`}
       >
         <RxCross2 size={25} color="black" />
       </button>
