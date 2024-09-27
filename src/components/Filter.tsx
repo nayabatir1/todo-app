@@ -17,7 +17,7 @@ const StatusType = [
 
 function Filter() {
   const [showFilter, setShowFilter] = useState(false);
-  const { filter } = useTodosContext();
+  const { filter, status } = useTodosContext();
 
   const toggleFilterPopup = useCallback(() => {
     setShowFilter((p) => !p);
@@ -44,10 +44,10 @@ function Filter() {
       </button>
 
       {showFilter && (
-        <div className="absolute bg-white right-10  w-[250px] top-3 rounded-lg flex flex-col p-5">
+        <div className="absolute bg-white right-10  w-[250px] top-3 rounded-lg flex flex-col">
           <div>
             <button
-              className="h=[30px] w-[30px] float-end grid place-content-center"
+              className="h=[30px] w-[30px] float-end grid place-content-center mr-5 my-3"
               onClick={toggleFilterPopup}
             >
               <RxCross2 color="black" size={20} />
@@ -56,9 +56,9 @@ function Filter() {
           {StatusType.map((s, i) => (
             <p
               key={s.type}
-              className={`${
-                i !== 0 ? "border-t-2" : ""
-              } text-black  py-4 uppercase hover:cursor-pointer`}
+              className={`border-t-2 ${
+                status === s.value ? "bg-[#3652AD] text-white" : ""
+              } text-black font-bold tracking-wider py-4 uppercase hover:cursor-pointer px-5`}
               onClick={() => filterTodo(s.value)}
             >
               {s.type}

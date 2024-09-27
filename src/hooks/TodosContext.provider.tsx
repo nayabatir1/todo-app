@@ -24,6 +24,7 @@ export type TodoItem = { data: string; id: string; status: Status };
 
 interface TodosContextType {
   todos: Array<TodoItem>;
+  status?: Status;
   addItem: (item: string) => void;
   removeItem: (id: string) => void;
   markComplete: (id: string) => void;
@@ -103,6 +104,7 @@ export const TodosProvider = ({ children }: { children: ReactNode }) => {
         removeItem,
         markComplete,
         filter,
+        status,
       }}
     >
       {children}
