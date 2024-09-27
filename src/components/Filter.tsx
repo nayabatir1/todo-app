@@ -53,7 +53,7 @@ function Filter() {
               <RxCross2 color="black" size={20} />
             </button>
           </div>
-          {StatusType.map((s, i) => (
+          {StatusType.map((s) => (
             <p
               key={s.type}
               className={`border-t-2 ${
